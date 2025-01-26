@@ -64,6 +64,10 @@ def compress_image(file, max_size_mb=5):
     buffer.seek(0)  # Reset buffer position for reading
     return buffer
 
+@app.route('/')
+def home():
+    return "Hello, World!"
+    
 @app.route('/upload', methods=['POST'])
 def upload_image():
     """Upload an image to the S3 bucket, index it in Rekognition, and store attributes in DynamoDB.
